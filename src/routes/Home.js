@@ -32,8 +32,7 @@ const Home = ({ userObj }) => {
 
   useEffect(() => {
     if (userObj.displayName === null) {
-      alert("이름을 설정해주세요.");
-      window.location.href = "/profile";
+      window.location.href = "/#/Profile";
     }
   }, [userObj]);
 
