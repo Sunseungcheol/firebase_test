@@ -14,7 +14,6 @@ const Profile = ({ userObj }) => {
   const [updateBtn, setUpdateBtn] = useState(false);
   const onProfileImgChange = ({ target: { files } }) => {
     setProfileImgSrc(URL.createObjectURL(files[0]));
-    console.log(profileImgSrc);
   };
   const {
     getValues,
