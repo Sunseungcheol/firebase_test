@@ -149,6 +149,7 @@ const Profile = ({ userObj }) => {
                     id="profile"
                     name="profile"
                     type="file"
+                    accept="image/*"
                     value={value}
                     onChange={onChange}
                   />

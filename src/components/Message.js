@@ -2,7 +2,7 @@ import { List } from "antd";
 import { Comment } from "antd";
 import { Tooltip } from "antd";
 import { deleteDoc, doc } from "firebase/firestore";
-import { timeForToday } from "../commonFn";
+import { DATE_FORMAT, TIME_FOR_TODAY } from "../commonFn";
 import { dbService } from "../firebase";
 
 const Message = ({ data, userObj }) => {
@@ -28,8 +28,8 @@ const Message = ({ data, userObj }) => {
       avatar: item.profileUrl,
       content: <p>{item.comment}</p>,
       datetime: (
-        <Tooltip title={item.createDate}>
-          <span>{timeForToday(item.createDate)}</span>
+        <Tooltip title={DATE_FORMAT("YYYY-MM-DD", item.createDate)}>
+          <span>{TIME_FOR_TODAY(item.createDate)}</span>
         </Tooltip>
       ),
       isOwner: item.user === userObj.uid,

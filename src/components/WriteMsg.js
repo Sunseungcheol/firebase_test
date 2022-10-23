@@ -53,6 +53,8 @@ const WriteMsg = ({ dbService, userObj }) => {
         createDate: Date.now(),
         profileUrl: userObj.photoURL,
       });
+
+      setValue("comments", "");
     } catch (e) {
       console.error("Error adding document: ", e);
     }
