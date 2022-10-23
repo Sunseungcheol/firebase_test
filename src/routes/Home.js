@@ -32,7 +32,7 @@ const Home = ({ userObj }) => {
 
   useEffect(() => {
     if (userObj.displayName === null) {
-      window.location.href = "firebase_test/#/Profile";
+      window.location.href = "#/Profile";
     }
   }, [userObj]);
 
