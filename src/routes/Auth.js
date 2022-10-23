@@ -63,15 +63,21 @@ const Auth = () => {
     } else if (name === "github") {
       provider = new GithubAuthProvider();
     }
-
-    const data = await signInWithPopup(authService, provider).then((result) => {
-      if (name === "github") {
-        updateProfile(result.user, {
-          displayName: "null",
-        });
-      }
-    });
+    try {
+      const data = await signInWithPopup(authService, provider).then(
+        (result) => {
+          if (name === "github") {
+            updateProfile(result.user, {
+              displayName: "null",
+            });
+          }
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <ButtonWrapStyled>
       <div className="btnBox googleLoginBtn">
