@@ -8,9 +8,10 @@ import { storageService } from "../firebase";
 import { Controller, useForm } from "react-hook-form";
 import { InnerBoxStyled } from "../commonStyled";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const Profile = ({ userObj }) => {
-  const [profileImgSrc, setProfileImgSrc] = useState(userObj.photoURL);
+  const [profileImgSrc, setProfileImgSrc] = useState(userObj.photoURL || "");
   const [updateBtn, setUpdateBtn] = useState(false);
   const onProfileImgChange = ({ target: { files } }) => {
     setProfileImgSrc(URL.createObjectURL(files[0]));
@@ -33,6 +34,7 @@ const Profile = ({ userObj }) => {
       alert("이름을 입력해주세요");
       return;
     }
+
     try {
       let returnUrl = "";
       setUpdateBtn(true);

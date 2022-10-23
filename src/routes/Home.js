@@ -1,5 +1,6 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { InnerBoxStyled } from "../commonStyled";
 import Message from "../components/Message";
 import WriteMsg from "../components/WriteMsg";
@@ -29,12 +30,6 @@ const Home = ({ userObj }) => {
       unsubscribe();
     };
   }, []);
-
-  useEffect(() => {
-    if (userObj.displayName === null) {
-      window.location.href = "#/Profile";
-    }
-  }, [userObj]);
 
   return (
     <InnerBoxStyled>

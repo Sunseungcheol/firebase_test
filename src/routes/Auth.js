@@ -3,6 +3,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import styled from "styled-components";
 import { authService } from "../firebase";
@@ -63,7 +64,13 @@ const Auth = () => {
       provider = new GithubAuthProvider();
     }
 
-    const data = await signInWithPopup(authService, provider);
+    const data = await signInWithPopup(authService, provider).then((result) => {
+      if (name === "github") {
+        updateProfile(result.user, {
+          displayName: "null",
+        });
+      }
+    });
   };
   return (
     <ButtonWrapStyled>
