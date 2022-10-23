@@ -76,7 +76,7 @@ const Auth = () => {
       <div className="btnBox appleLoginBtn">
         <button name="github" onClick={onSocial}>
           <GithubOutlined className="socialIcon" />
-          애플 로그인
+          깃헙 로그인
         </button>
       </div>
     </ButtonWrapStyled>
